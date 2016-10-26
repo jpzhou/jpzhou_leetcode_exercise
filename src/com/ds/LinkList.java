@@ -106,11 +106,10 @@ class LinkList {
         System.out.printf("\ngetLength = %s\n", l1.getLength());
 
         for(int i=-2; i< 15; i++){
-//            System.out.print("");
-//            Node node = l1.findLastNodeV1(i);
-//            System.out.printf("index=%s\tfindLastNodeV1=%s\n", i, (node == null)?null:node.data);
+            Node node = l1.findLastNodeV1(i);
+            System.out.printf("index=%s\tfindLastNodeV1=%s\n", i, (node == null)?null:node.data);
 
-            Node node = l1.findLastNodeV2(i);
+            node = l1.findLastNodeV2(i);
             System.out.printf("index=%s\tfindLastNodeV2=%s\n", i, (node == null)?null:node.data);
 
         }
