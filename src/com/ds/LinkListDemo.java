@@ -16,7 +16,7 @@ package com.ds;
  * 11、判断两个单链表相交的第一个交点（剑指offer，题37）
  *
  */
-class LinkList {
+class LinkListDemo {
     class Node{
         int data;
         Node next;
@@ -94,9 +94,13 @@ class LinkList {
         return first;
     }
 
+    public LinkListDemo reverse(){
+        LinkListDemo l1 = new LinkListDemo();
+        return l1;
+    }
 
     public static void main(String args[]){
-        LinkList l1 = new LinkList();
+        LinkListDemo l1 = new LinkListDemo();
         for(int i=0; i<10; i++){
             l1.add(i);
         }
