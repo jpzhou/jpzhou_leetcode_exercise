@@ -25,9 +25,6 @@ import java.util.Scanner;
  *
  */
 
-
-
-
 public class BinaryTreeDemo {
     /**
                      1

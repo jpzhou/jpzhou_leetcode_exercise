@@ -37,7 +37,7 @@ class LinkListDemo {
             current.next = new Node(data);
             current = current.next;
         }
-    }
+}
 
     public void print(){
         Node node = head;
@@ -46,6 +46,19 @@ class LinkListDemo {
             System.out.print("\t");
             node = node.next;
         }
+        System.out.println();
+    }
+
+    public void recursivePrint(Node head) {
+        if(head == null) return;
+        System.out.printf("%d\t", head.data);
+        recursivePrint(head.next);
+    }
+
+    public void reversePrint(Node head){
+        if (head == null) return;
+        reversePrint(head.next);
+        System.out.printf("%d\t", head.data);
     }
 
     public int getLength(){
@@ -94,21 +107,54 @@ class LinkListDemo {
         return first;
     }
 
-    public LinkListDemo reverse(){
-        LinkListDemo l1 = new LinkListDemo();
-        return l1;
+    /**
+     * 1 -> 2 -> 3 -> 4 -> 5
+     * 1 <- 2 <- 3 <-4 <- 5
+     */
+    public void reverse(){
+        Node curNode = head;
+        Node preNode = null;
+        while (curNode != null) {
+            if(curNode.next == null) head = curNode;
+            Node nextNode = curNode.next;
+            curNode.next = preNode;
+            preNode = curNode;
+            curNode = nextNode;
+        }
     }
 
-    public static void main(String args[]){
+    public void runPrint(){
         LinkListDemo l1 = new LinkListDemo();
         for(int i=0; i<10; i++){
             l1.add(i);
         }
-
         System.out.print("print = ");
         l1.print();
-        System.out.printf("\ngetLength = %s\n", l1.getLength());
+    }
 
+    public void runRecursivePrint() {
+        System.out.println("runRecursivePrint:");
+        LinkListDemo l1 = new LinkListDemo();
+        for(int i=0; i<10; i++){
+            l1.add(i);
+        }
+        l1.recursivePrint(l1.head);
+        System.out.println();
+    }
+
+    public void runGetLength(){
+        LinkListDemo l1 = new LinkListDemo();
+        for(int i=0; i<10; i++){
+            l1.add(i);
+        }
+        System.out.printf("\ngetLength = %s\n", l1.getLength());
+    }
+
+    public void runFindLastNode() {
+        LinkListDemo l1 = new LinkListDemo();
+        for(int i=0; i<10; i++){
+            l1.add(i);
+        }
         for(int i=-2; i< 15; i++){
             Node node = l1.findLastNodeV1(i);
             System.out.printf("index=%s\tfindLastNodeV1=%s\n", i, (node == null)?null:node.data);
@@ -117,6 +163,33 @@ class LinkListDemo {
             System.out.printf("index=%s\tfindLastNodeV2=%s\n", i, (node == null)?null:node.data);
 
         }
+    }
 
+    public void runReversePrint() {
+        System.out.println("runReversePrint:");
+        LinkListDemo l1 = new LinkListDemo();
+        for(int i=0; i<10; i++){
+            l1.add(i);
+        }
+        l1.reversePrint(l1.head);
+        System.out.println();
+    }
+
+    public void runReverse(){
+        System.out.println("runReverse:");
+        LinkListDemo l1 = new LinkListDemo();
+        for(int i=0; i<10; i++){
+            l1.add(i);
+        }
+        l1.print();
+        l1.reverse();
+        l1.print();
+    }
+
+    public static void main(String args[]){
+        LinkListDemo l1 = new LinkListDemo();
+//        l1.runReversePrint();
+//        l1.runRecursivePrint();
+        l1.runReverse();
     }
 }

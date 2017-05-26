@@ -1,5 +1,6 @@
 package com.utils;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -37,12 +38,22 @@ public class ArrayUtils {
      *
      * @return int []
      */
-    public static int[] getRandomArray() {
-        int[] numbers = new int[10];
+    public static int[] getRandomArray(int elementNum) {
+        int[] numbers = new int[elementNum];
         Random ra = new Random();
-        for (int i = 0; i < 10; i++) {
-            numbers[i] = ra.nextInt(20) + 1;
+        for (int i = 0; i < elementNum; i++) {
+            numbers[i] = ra.nextInt(elementNum + 10) + 1;
         }
+        return numbers;
+    }
+
+    public static int[] getRandomSortedArray(int elementNum) {
+        int[] numbers = new int[elementNum];
+        Random ra = new Random();
+        for (int i = 0; i < elementNum; i++) {
+            numbers[i] = ra.nextInt(elementNum + 10) + 1;
+        }
+        Arrays.sort(numbers);
         return numbers;
     }
 
